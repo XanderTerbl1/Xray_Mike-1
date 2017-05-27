@@ -1,4 +1,4 @@
 *.dcu
-_history
+_history/
 *.identcache
 *.local
