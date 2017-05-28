@@ -2,4 +2,5 @@
 _history/
 *.identcache
 *.local
-*.idb
+*.ldb
+///////
