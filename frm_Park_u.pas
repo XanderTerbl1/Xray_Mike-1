@@ -72,8 +72,10 @@ end;
 procedure TForm1.tmr1Timer(Sender: TObject);
 begin
   Form2.Show;
+  (img1.Picture.Graphic as TGIFImage).Animate := False;
   tmr1.Enabled := False;
-  (img1.Picture.Graphic as TGIFImage).Animate := False
+  Self.Hide;
+
 end;
 
 end.

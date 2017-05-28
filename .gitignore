@@ -3,3 +3,7 @@ _history/
 *.identcache
 *.local
 *.ldb
+*.~2~
+__history/frm_MainMenu_u.dfm.~3~
+*.~4~
+__history/frm_MainMenu_u.pas.~3~
