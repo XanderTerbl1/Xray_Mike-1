@@ -29,8 +29,6 @@ type
     img2: TImage;
     img3: TImage;
     pnl1: TPanel;
-    img4: TImage;
-    img5: TImage;
     lbl7: TLabel;
     procedure btn1Click(Sender: TObject);
     procedure lbl6Click(Sender: TObject);
