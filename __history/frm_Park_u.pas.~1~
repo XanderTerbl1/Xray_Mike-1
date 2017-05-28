@@ -18,7 +18,6 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     tmr1: TTimer;
-    shp2: TShape;
     procedure btn1Click(Sender: TObject);
     procedure btn_EmpClick(Sender: TObject);
     procedure btn_AdmClick(Sender: TObject);

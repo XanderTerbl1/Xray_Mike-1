@@ -27,14 +27,8 @@ type
     lbl8: TLabel;
     lbl9: TLabel;
     img2: TImage;
-    img3: TImage;
-    pnl1: TPanel;
-    img4: TImage;
-    img5: TImage;
-    lbl7: TLabel;
     procedure btn1Click(Sender: TObject);
     procedure lbl6Click(Sender: TObject);
-    procedure dbgrd1CellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -51,11 +45,6 @@ implementation
 procedure TForm3.btn1Click(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TForm3.dbgrd1CellClick(Column: TColumn);
-begin
-pnl1.Hide;
 end;
 
 procedure TForm3.lbl6Click(Sender: TObject);

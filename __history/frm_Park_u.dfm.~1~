@@ -3,8 +3,8 @@ object Form1: TForm1
   Top = 0
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 637
-  ClientWidth = 1002
+  ClientHeight = 619
+  ClientWidth = 661
   Color = clScrollBar
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,24 +15,16 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object shp1: TShape
-    Left = -5
-    Top = 630
-    Width = 1026
+    Left = -8
+    Top = 614
+    Width = 670
     Height = 17
     Brush.Color = 2649375
     Pen.Style = psClear
   end
-  object shp2: TShape
-    Left = 276
-    Top = 58
-    Width = 447
-    Height = 456
-    Pen.Color = 2649375
-    Pen.Width = 3
-  end
   object grp1: TGroupBox
-    Left = 279
-    Top = 61
+    Left = 96
+    Top = 64
     Width = 441
     Height = 449
     Color = clBtnFace
@@ -41,7 +33,7 @@ object Form1: TForm1
     TabOrder = 0
     object img1: TImage
       Left = 109
-      Top = -25
+      Top = -12
       Width = 256
       Height = 256
       Align = alCustom
@@ -3681,6 +3673,8 @@ object Form1: TForm1
         2BBE222CC6A22CCE222DD6A22DDE222EE6A22EEE222FF6A22FFE223006A3300E
         233116232A0604003B}
       Transparent = True
+      ExplicitWidth = 252
+      ExplicitHeight = 243
     end
     object lbl1: TLabel
       Left = 238
@@ -3766,7 +3760,7 @@ object Form1: TForm1
     Left = 952
     Top = 24
     Bitmap = {
-      494C010101000C00180020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010101000C00140020002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000002000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

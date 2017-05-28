@@ -57,13 +57,13 @@ begin
   begin
     lbl9.Visible := False;
     lbl8.Visible := False;
-    lbl6.Caption := 'View Shift Info..';
+    lbl6.Caption := 'View Watering Info..';
   end
   else
   begin
     lbl9.Visible := True;
     lbl8.Visible := True;
-    lbl6.Caption := 'Hide Shift Info..';
+    lbl6.Caption := 'Hide Watering Info..';
 
   end;
 end;
