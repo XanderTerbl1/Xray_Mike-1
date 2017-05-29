@@ -13,13 +13,13 @@ type
     edt1: TEdit;
     btn_Emp: TButton;
     btn_Adm: TButton;
+    shp1: TShape;
     lbl1: TLabel;
     lbl2: TLabel;
     tmr1: TTimer;
     shp2: TShape;
     img2: TImage;
     img1: TImage;
-    shp3: TShape;
     procedure btn1Click(Sender: TObject);
     procedure btn_EmpClick(Sender: TObject);
     procedure btn_AdmClick(Sender: TObject);
@@ -69,7 +69,7 @@ begin
   lbl2.Caption := 'Employee';
   lbl1.Show;
   lbl2.Show;
-    edt1.Enabled:= fALSE;
+  edt1.Hide;
   btn1.Enabled := tRUE;
 end;
 

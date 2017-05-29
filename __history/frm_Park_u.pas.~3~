@@ -13,13 +13,12 @@ type
     edt1: TEdit;
     btn_Emp: TButton;
     btn_Adm: TButton;
+    img1: TImage;
+    shp1: TShape;
     lbl1: TLabel;
     lbl2: TLabel;
     tmr1: TTimer;
     shp2: TShape;
-    img2: TImage;
-    img1: TImage;
-    shp3: TShape;
     procedure btn1Click(Sender: TObject);
     procedure btn_EmpClick(Sender: TObject);
     procedure btn_AdmClick(Sender: TObject);
@@ -47,7 +46,6 @@ begin
     (img1.Picture.Graphic as TGIFImage).Animate := True;
 
   tmr1.Enabled := true;
-  img1.Show;
 
 end;
 
@@ -58,8 +56,7 @@ begin
   lbl2.Caption := 'Admin';
   lbl1.Show;
   lbl2.Show;
-  edt1.Enabled:= tRUE;
-  btn1.Enabled := tRUE;
+  edt1.Show;
 end;
 
 procedure TForm1.btn_EmpClick(Sender: TObject);
@@ -69,8 +66,7 @@ begin
   lbl2.Caption := 'Employee';
   lbl1.Show;
   lbl2.Show;
-    edt1.Enabled:= fALSE;
-  btn1.Enabled := tRUE;
+  edt1.Hide;
 end;
 
 procedure TForm1.tmr1Timer(Sender: TObject);
@@ -79,7 +75,6 @@ begin
   (img1.Picture.Graphic as TGIFImage).Animate := False;
   tmr1.Enabled := False;
   Self.Hide;
-  img1.Hide;
 
 end;
 

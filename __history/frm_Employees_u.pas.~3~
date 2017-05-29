@@ -3,8 +3,7 @@ unit frm_Employees_u;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg,
-  GIFImg;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg;
 
 type
   TForm4 = class(TForm)
@@ -16,8 +15,10 @@ type
     btn1: TButton;
     btn2: TButton;
     btn4: TButton;
+    btn3: TButton;
     pnl1: TPanel;
     lbl7: TLabel;
+    shp1: TShape;
     img3: TImage;
     img1: TImage;
     grp1: TGroupBox;
@@ -30,13 +31,8 @@ type
     lbl6: TLabel;
     lbl8: TLabel;
     lbl9: TLabel;
-    btn3: TButton;
-    shp3: TShape;
-    img6: TImage;
     procedure lbl6Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure dbgrd1CellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -50,22 +46,9 @@ implementation
 
 {$R *.dfm}
 
-uses
-  frm_MainMenu_u;
-
-procedure TForm4.dbgrd1CellClick(Column: TColumn);
-begin
-pnl1.Hide;
-end;
-
-procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Form2.Show;
-end;
-
 procedure TForm4.btn3Click(Sender: TObject);
 begin
-  Close;
+Close;
 end;
 
 procedure TForm4.lbl6Click(Sender: TObject);

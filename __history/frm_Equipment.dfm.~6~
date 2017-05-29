@@ -5760,6 +5760,7 @@ object Form5: TForm5
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      Visible = False
     end
   end
   object pnl1: TPanel

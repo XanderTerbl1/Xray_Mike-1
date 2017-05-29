@@ -14,21 +14,21 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object shp1: TShape
+    Left = -5
+    Top = 630
+    Width = 1026
+    Height = 17
+    Brush.Color = 2649375
+    Pen.Style = psClear
+  end
   object shp2: TShape
     Left = 301
     Top = 42
     Width = 447
     Height = 456
-    Pen.Color = 2663526
+    Pen.Color = 2649375
     Pen.Width = 3
-  end
-  object shp3: TShape
-    Left = 0
-    Top = 630
-    Width = 1744
-    Height = 17
-    Brush.Color = 2663526
-    Pen.Style = psClear
   end
   object grp1: TGroupBox
     Left = 304
@@ -51,6 +51,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      Visible = False
     end
     object lbl2: TLabel
       Left = 117
@@ -66,6 +67,7 @@ object Form1: TForm1
       Font.Style = []
       ParentBiDiMode = False
       ParentFont = False
+      Visible = False
     end
     object img2: TImage
       Left = 3
@@ -1236,7 +1238,7 @@ object Form1: TForm1
         454E44AE426082}
     end
     object img1: TImage
-      Left = 247
+      Left = 255
       Top = 348
       Width = 114
       Height = 98
@@ -1558,11 +1560,10 @@ object Form1: TForm1
     end
     object btn1: TButton
       Left = 109
-      Top = 369
-      Width = 132
+      Top = 368
+      Width = 156
       Height = 48
       Caption = 'Log in'
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1581,7 +1582,6 @@ object Form1: TForm1
       Width = 252
       Height = 26
       BiDiMode = bdRightToLeft
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -1591,6 +1591,7 @@ object Form1: TForm1
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
+      Visible = False
     end
     object btn_Emp: TButton
       Left = 109

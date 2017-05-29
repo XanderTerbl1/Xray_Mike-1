@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, jpeg,
-  pngimage, GIFImg;
+  pngimage;
 
 type
   TForm3 = class(TForm)
@@ -12,6 +12,7 @@ type
     dbgrd1: TDBGrid;
     grp1: TGroupBox;
     img1: TImage;
+    shp1: TShape;
     lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -21,6 +22,7 @@ type
     btn1: TButton;
     btn2: TButton;
     btn4: TButton;
+    btn3: TButton;
     lbl6: TLabel;
     lbl8: TLabel;
     lbl9: TLabel;
@@ -30,15 +32,9 @@ type
     img4: TImage;
     img5: TImage;
     lbl7: TLabel;
-    lbl10: TLabel;
-    btn3: TButton;
-    shp3: TShape;
-    img6: TImage;
     procedure btn1Click(Sender: TObject);
     procedure lbl6Click(Sender: TObject);
     procedure dbgrd1CellClick(Column: TColumn);
-    procedure btn3Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -52,24 +48,9 @@ implementation
 
 {$R *.dfm}
 
-uses
-  frm_MainMenu_u;
-
-
-procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
- Form2.Show;
-end;
-
-
 procedure TForm3.btn1Click(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TForm3.btn3Click(Sender: TObject);
-begin
-Self.Close;
 end;
 
 procedure TForm3.dbgrd1CellClick(Column: TColumn);
