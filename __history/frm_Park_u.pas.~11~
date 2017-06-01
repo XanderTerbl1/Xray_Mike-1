@@ -47,7 +47,7 @@ begin
   Form2.Login(State);
   if State = 'Admin' then
   begin
-    if not (Password = Form2.PC.GetPassword) then
+    if not Password = Form2.PC.GetPassword then
     begin
       MessageDlg('Incorrect Admin Password', mtError, [mbOK], 0);
       Exit;

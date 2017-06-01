@@ -24,10 +24,12 @@ type
     procedure btn_EmpClick(Sender: TObject);
     procedure btn_AdmClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    State : String;
   end;
 
 var
@@ -38,21 +40,9 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btn1Click(Sender: TObject);
-var
-  State: string;
-  Password: string;
 begin
-  State := lbl2.Caption;
-  Password := edt1.Text;
-  Form2.Login(State);
-  if State = 'Admin' then
-  begin
-    if not (Password = Form2.PC.GetPassword) then
-    begin
-      MessageDlg('Incorrect Admin Password', mtError, [mbOK], 0);
-      Exit;
-    end;
-  end;
+
+
 
   if (img1.Picture.Graphic as TGIFImage).Animate = True then
     (img1.Picture.Graphic as TGIFImage).Animate := False
@@ -71,7 +61,7 @@ begin
   lbl2.Caption := 'Admin';
   lbl1.Show;
   lbl2.Show;
-  edt1.Enabled := tRUE;
+  edt1.Enabled:= tRUE;
   btn1.Enabled := tRUE;
 end;
 
@@ -82,9 +72,13 @@ begin
   lbl2.Caption := 'Employee';
   lbl1.Show;
   lbl2.Show;
-  edt1.Enabled := fALSE;
+    edt1.Enabled:= fALSE;
   btn1.Enabled := tRUE;
+end;
 
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+State := '';
 end;
 
 procedure TForm1.tmr1Timer(Sender: TObject);

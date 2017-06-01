@@ -13,11 +13,13 @@ type
     edt1: TEdit;
     btn_Emp: TButton;
     btn_Adm: TButton;
-    img1: TImage;
-    shp1: TShape;
     lbl1: TLabel;
     lbl2: TLabel;
     tmr1: TTimer;
+    shp2: TShape;
+    img2: TImage;
+    img1: TImage;
+    shp3: TShape;
     procedure btn1Click(Sender: TObject);
     procedure btn_EmpClick(Sender: TObject);
     procedure btn_AdmClick(Sender: TObject);
@@ -37,14 +39,16 @@ implementation
 
 procedure TForm1.btn1Click(Sender: TObject);
 begin
-//if admin , check password - else just login
-//Shp Form
+
+
+
   if (img1.Picture.Graphic as TGIFImage).Animate = True then
     (img1.Picture.Graphic as TGIFImage).Animate := False
   else
     (img1.Picture.Graphic as TGIFImage).Animate := True;
 
   tmr1.Enabled := true;
+  img1.Show;
 
 end;
 
@@ -55,7 +59,8 @@ begin
   lbl2.Caption := 'Admin';
   lbl1.Show;
   lbl2.Show;
-  edt1.Show;
+  edt1.Enabled:= tRUE;
+  btn1.Enabled := tRUE;
 end;
 
 procedure TForm1.btn_EmpClick(Sender: TObject);
@@ -65,14 +70,18 @@ begin
   lbl2.Caption := 'Employee';
   lbl1.Show;
   lbl2.Show;
-  edt1.Hide;
+    edt1.Enabled:= fALSE;
+  btn1.Enabled := tRUE;
 end;
 
 procedure TForm1.tmr1Timer(Sender: TObject);
 begin
   Form2.Show;
+  (img1.Picture.Graphic as TGIFImage).Animate := False;
   tmr1.Enabled := False;
-  (img1.Picture.Graphic as TGIFImage).Animate := False
+  Self.Hide;
+  img1.Hide;
+
 end;
 
 end.

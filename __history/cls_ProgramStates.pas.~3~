@@ -1,0 +1,21 @@
+unit cls_ProgramStates;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ImgList, pngimage, ExtCtrls, frm_Plants_u, frm_Employees_u, frm_Equipment, GIFImg;
+
+type
+  TControl = class(TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+end.
+
+

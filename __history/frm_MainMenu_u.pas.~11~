@@ -3,7 +3,8 @@ unit frm_MainMenu_u;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ImgList, pngimage, ExtCtrls, frm_Plants_u, frm_Employees_u, frm_Equipment, GIFImg, cls_ProgramControl;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ImgList, pngimage, ExtCtrls, frm_Plants_u, frm_Employees_u, frm_Equipment,
+  GIFImg;
 
 type
   TForm2 = class(TForm)
@@ -22,12 +23,10 @@ type
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
-    procedure Login(State: string);
   private
     { Private declarations }
   public
     { Public declarations }
-    PC: TControl;    //Program Controller
   end;
 
 var
@@ -65,11 +64,6 @@ end;
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form1.Show;
-end;
-
-procedure TForm2.Login(State: string);
-begin
-PC := TControl.Create(State);
 end;
 
 end.

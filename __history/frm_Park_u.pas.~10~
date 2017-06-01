@@ -44,10 +44,11 @@ var
 begin
   State := lbl2.Caption;
   Password := edt1.Text;
-  Form2.Login(State);
+
   if State = 'Admin' then
   begin
-    if not (Password = Form2.PC.GetPassword) then
+    Form2.Login(State);
+    if not Password = Form2.PC.GetPassword then
     begin
       MessageDlg('Incorrect Admin Password', mtError, [mbOK], 0);
       Exit;
