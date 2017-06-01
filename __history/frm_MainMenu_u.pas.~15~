@@ -22,7 +22,6 @@ type
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
-    procedure Login(State: string);
   private
     { Private declarations }
   public
@@ -65,11 +64,6 @@ end;
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form1.Show;
-end;
-
-procedure TForm2.Login(State: string);
-begin
-PC := TControl.Create(State);
 end;
 
 end.

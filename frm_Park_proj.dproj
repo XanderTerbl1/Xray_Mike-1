@@ -62,6 +62,7 @@
 			<DCCReference Include="frm_Equipment.pas">
 				<Form>Form5</Form>
 			</DCCReference>
+			<DCCReference Include="cls_ProgramControl.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

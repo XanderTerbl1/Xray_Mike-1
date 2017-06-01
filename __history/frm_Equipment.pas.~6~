@@ -36,7 +36,6 @@ type
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dbgrd1CellClick(Column: TColumn);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,14 +61,6 @@ end;
 procedure TForm5.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
  Form2.Show;
-end;
-
-procedure TForm5.FormShow(Sender: TObject);
-begin
-  if Form2.PC.GetState = 'Admin' then
-    grp2.Show
-  else
-    grp2.Hide;
 end;
 
 procedure TForm5.btn3Click(Sender: TObject);

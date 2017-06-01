@@ -3,8 +3,7 @@ unit frm_Employees_u;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg,
-  GIFImg;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg;
 
 type
   TForm4 = class(TForm)
@@ -37,6 +36,7 @@ type
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dbgrd1CellClick(Column: TColumn);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,12 +55,20 @@ uses
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);
 begin
-pnl1.Hide;
+  pnl1.Hide;
 end;
 
 procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form2.Show;
+end;
+
+procedure TForm4.FormShow(Sender: TObject);
+begin
+  if Form2.PC.GetState = 'Admin' then
+    grp2.Show
+  else
+    grp2.Hide;
 end;
 
 procedure TForm4.btn3Click(Sender: TObject);
