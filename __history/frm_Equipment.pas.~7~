@@ -3,7 +3,8 @@ unit frm_Equipment;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, DataModule, Grids, DBGrids, jpeg, ExtCtrls, pngimage, GIFImg, DBCtrls;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, jpeg, ExtCtrls, pngimage, GIFImg;
 
 type
   TForm5 = class(TForm)
@@ -21,7 +22,7 @@ type
     img3: TImage;
     grp1: TGroupBox;
     shp2: TShape;
-    img_Item: TImage;
+    img5: TImage;
     lbl1: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -31,17 +32,11 @@ type
     btn3: TButton;
     shp3: TShape;
     img6: TImage;
-    dbtxt1: TDBText;
-    dbtxtOperrational: TDBText;
-    dbtxtReplacement: TDBText;
-    dbtxtOperrational1: TDBText;
-    btn5: TButton;
     procedure lbl6Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dbgrd1CellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
-    procedure btn5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,37 +53,15 @@ implementation
 uses
   frm_MainMenu_u;
 
-procedure TForm5.btn5Click(Sender: TObject);
-begin
-  pnl1.BringToFront;
-  pnl1.Show;
-end;
 
 procedure TForm5.dbgrd1CellClick(Column: TColumn);
-var
-  ImagePath: WideString;
 begin
-  pnl1.SendToBack;
-
-  with DataModule1 do
-  begin
-    ImagePath := tbl_Equipment['ImagePath']; //
-    if ImagePath = '' then
-    begin
-     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      img_Item.Picture := Nil; //For now
-    end
-    else
-    begin
-      img_Item.Picture.LoadFromFile(ImagePath);
-    end;
-
-  end;
+pnl1.Hide;
 end;
 
 procedure TForm5.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Form2.Show;
+ Form2.Show;
 end;
 
 procedure TForm5.FormShow(Sender: TObject);
@@ -101,7 +74,7 @@ end;
 
 procedure TForm5.btn3Click(Sender: TObject);
 begin
-  Self.Close;
+Self.Close;
 end;
 
 procedure TForm5.lbl6Click(Sender: TObject);
@@ -122,5 +95,3 @@ begin
 end;
 
 end.
-
-

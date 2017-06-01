@@ -109,6 +109,7 @@ begin
     else
     begin
       img_Item.Picture.LoadFromFile(ImagePath);
+
     end;
 
   end;

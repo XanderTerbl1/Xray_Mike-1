@@ -9,14 +9,14 @@ type
   TDataModule1 = class(TDataModule)
     con1: TADOConnection;
     con2: TADOConnection;
-    tbl_Plants: TADOTable;
-    tbl_Employees: TADOTable;
-    tbl_Equipment: TADOTable;
+    tbl1: TADOTable;
+    tbl2: TADOTable;
+    tbl3: TADOTable;
     tbl4: TADOTable;
     tbl5: TADOTable;
-    ds_Plant: TDataSource;
-    ds_Employee: TDataSource;
-    ds_Equip: TDataSource;
+    ds1: TDataSource;
+    ds2: TDataSource;
+    ds3: TDataSource;
     ds4: TDataSource;
     ds5: TDataSource;
   private

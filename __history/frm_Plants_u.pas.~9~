@@ -103,12 +103,13 @@ begin
     ImagePath := tbl_Plants['ImagePath']; //
     if ImagePath = '' then
     begin
-     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
       img_Item.Picture := Nil; //For now
     end
     else
     begin
       img_Item.Picture.LoadFromFile(ImagePath);
+
     end;
 
   end;

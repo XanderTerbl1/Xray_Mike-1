@@ -8,8 +8,7 @@ uses
   frm_Employees_u in 'frm_Employees_u.pas' {Form4},
   DataModule in 'DataModule.pas' {DataModule1: TDataModule},
   frm_Equipment in 'frm_Equipment.pas' {Form5},
-  cls_ProgramControl in 'cls_ProgramControl.pas',
-  frm_UpdateDetails_u in 'frm_UpdateDetails_u.pas' {Form6};
+  cls_ProgramControl in 'cls_ProgramControl.pas';
 
 {$R *.res}
 
@@ -22,6 +21,5 @@ begin
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TForm6, Form6);
   Application.Run;
 end.

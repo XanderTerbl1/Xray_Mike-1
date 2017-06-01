@@ -10,7 +10,7 @@ type
     lbl1: TLabel;
     dbgrd1: TDBGrid;
     grp1: TGroupBox;
-    img_Item: TImage;
+    img1: TImage;
     lbl2: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -93,25 +93,8 @@ begin
 end;
 
 procedure TForm3.dbgrd1CellClick(Column: TColumn);
-var
-  ImagePath: WideString;
 begin
   pnl1.SendToBack;
-
-  with DataModule1 do
-  begin
-    ImagePath := tbl_Plants['ImagePath']; //
-    if ImagePath = '' then
-    begin
-     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      img_Item.Picture := Nil; //For now
-    end
-    else
-    begin
-      img_Item.Picture.LoadFromFile(ImagePath);
-    end;
-
-  end;
 end;
 
 procedure TForm3.lbl6Click(Sender: TObject);

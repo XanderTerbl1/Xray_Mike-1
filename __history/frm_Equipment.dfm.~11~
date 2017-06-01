@@ -6685,9 +6685,9 @@ object Form5: TForm5
     end
   end
   object btn3: TButton
-    Left = 24
+    Left = 40
     Top = 544
-    Width = 272
+    Width = 241
     Height = 49
     Caption = 'Return to Main Menu'
     Font.Charset = DEFAULT_CHARSET

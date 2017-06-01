@@ -4189,7 +4189,7 @@ object Form5: TForm5
       Pen.Color = 2649375
       Pen.Width = 3
     end
-    object img_Item: TImage
+    object img5: TImage
       Left = 14
       Top = 59
       Width = 240
@@ -6685,9 +6685,9 @@ object Form5: TForm5
     end
   end
   object btn3: TButton
-    Left = 24
+    Left = 40
     Top = 544
-    Width = 272
+    Width = 241
     Height = 49
     Caption = 'Return to Main Menu'
     Font.Charset = DEFAULT_CHARSET
