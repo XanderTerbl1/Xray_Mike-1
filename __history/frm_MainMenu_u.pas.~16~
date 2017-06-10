@@ -28,9 +28,6 @@ type
   public
     { Public declarations }
     PC: TControl;    //Program Controller
-
-    const
-      DefaultPath = 'NoImage.png';    //Load it from a textfile
   end;
 
 var
@@ -41,8 +38,6 @@ implementation
 {$R *.dfm}
 uses
   frm_Park_u;
-
-
 
 procedure TForm2.btn1Click(Sender: TObject);
 begin
@@ -74,7 +69,7 @@ end;
 
 procedure TForm2.Login(State: string);
 begin
-  PC := TControl.Create(State);
+PC := TControl.Create(State);
 end;
 
 end.

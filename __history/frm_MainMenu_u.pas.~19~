@@ -30,7 +30,7 @@ type
     PC: TControl;    //Program Controller
 
     const
-      DefaultPath = 'NoImage.png';    //Load it from a textfile
+      DefaultPath = 'NoImage.png';
   end;
 
 var
@@ -42,7 +42,8 @@ implementation
 uses
   frm_Park_u;
 
-
+const
+  DefaultPath = 'NoImage.png';  //Load it from a textfile
 
 procedure TForm2.btn1Click(Sender: TObject);
 begin

@@ -114,9 +114,9 @@ begin
 
     end;
 
-    ts1.TabVisible := True;
+    ts1.TabVisible := False;
     ts2.TabVisible := False;
-    ts3.TabVisible := false;
+    ts3.TabVisible := True;
 
     ShowModal;
     Self.AlphaBlend := False;

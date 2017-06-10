@@ -1,12 +1,12 @@
-unit frm_Equipment;
+unit frm_Employees_u;
 
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, DataModule, Grids, DBGrids, jpeg, ExtCtrls, pngimage, GIFImg, DBCtrls;
+  Windows, Messages, DataModule, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg, DBCtrls;
 
 type
-  TForm5 = class(TForm)
+  TForm4 = class(TForm)
     img2: TImage;
     img4: TImage;
     lbl2: TLabel;
@@ -17,8 +17,8 @@ type
     btn4: TButton;
     pnl1: TPanel;
     lbl7: TLabel;
-    img1: TImage;
     img3: TImage;
+    img1: TImage;
     grp1: TGroupBox;
     shp2: TShape;
     img_Item: TImage;
@@ -27,14 +27,16 @@ type
     lbl4: TLabel;
     lbl5: TLabel;
     lbl6: TLabel;
-    lbl10: TLabel;
+    lbl8: TLabel;
+    lbl9: TLabel;
     btn3: TButton;
     shp3: TShape;
     img6: TImage;
-    dbtxt1: TDBText;
-    dbtxtOperrational: TDBText;
     dbtxtReplacement: TDBText;
     dbtxtOperrational1: TDBText;
+    dbtxtOperrational: TDBText;
+    dbtxtOperrational2: TDBText;
+    dbtxtReplacement1: TDBText;
     btn5: TButton;
     procedure lbl6Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
@@ -50,7 +52,7 @@ type
   end;
 
 var
-  Form5: TForm5;
+  Form4: TForm4;
 
 implementation
 
@@ -59,47 +61,29 @@ implementation
 uses
   frm_MainMenu_u, frm_UpdateDetails_u;
 
-procedure TForm5.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
+procedure TForm4.btn4Click(Sender: TObject);
 begin
-//Check if selected
-
-
-  Self.AlphaBlend := True;
   Self.AlphaBlendValue := 150;
-
+  Self.AlphaBlend := True;
   with Form6 do
   begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Equip.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Equip.Picture.LoadFromFile(ImagePath);
-
-    end;
-
     ts1.TabVisible := False;
-    ts2.TabVisible := False;
-    ts3.TabVisible := True;
-
+    ts2.TabVisible := true;
+    ts3.TabVisible := false;
     ShowModal;
-    Self.AlphaBlend := False;
+
+    Self.AlphaBlend := True;
   end;
 
 end;
 
-procedure TForm5.btn5Click(Sender: TObject);
+procedure TForm4.btn5Click(Sender: TObject);
 begin
   pnl1.BringToFront;
   pnl1.Show;
 end;
 
-procedure TForm5.dbgrd1CellClick(Column: TColumn);
+procedure TForm4.dbgrd1CellClick(Column: TColumn);
 var
   ImagePath: WideString;
 begin
@@ -107,11 +91,11 @@ begin
 
   with DataModule1 do
   begin
-    ImagePath := tbl_Plants['ImagePath']; //
+    ImagePath := tbl_Employees['ImagePath']; //
     if ImagePath = '' then
     begin
-      img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      //img_Item.Picture := Nil; //For now
+     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture := Nil; //For now
     end
     else
     begin
@@ -119,15 +103,14 @@ begin
     end;
 
   end;
-
 end;
 
-procedure TForm5.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form2.Show;
 end;
 
-procedure TForm5.FormShow(Sender: TObject);
+procedure TForm4.FormShow(Sender: TObject);
 begin
   if Form2.PC.GetState = 'Admin' then
     grp2.Show
@@ -138,28 +121,28 @@ begin
   pnl1.Show;
 end;
 
-procedure TForm5.btn3Click(Sender: TObject);
+procedure TForm4.btn3Click(Sender: TObject);
 begin
-  Self.Close;
+  Close;
 end;
 
-procedure TForm5.lbl6Click(Sender: TObject);
+procedure TForm4.lbl6Click(Sender: TObject);
 begin
-  if lbl1.Visible = True then
+  if lbl9.Visible = True then
   begin
-    lbl3.Visible := False;
-    lbl1.Visible := False;
+    lbl9.Visible := False;
+    lbl8.Visible := False;
     dbtxtOperrational.Visible := False;
     dbtxtReplacement.Visible := False;
-    lbl6.Caption := 'View Repair Info..';
+    lbl6.Caption := 'View Shift Info..';
   end
   else
   begin
-    lbl1.Visible := True;
-    lbl3.Visible := True;
+    lbl9.Visible := True;
+    lbl8.Visible := True;
     dbtxtOperrational.Visible := True;
     dbtxtReplacement.Visible := True;
-    lbl6.Caption := 'Hide Repair Info..';
+    lbl6.Caption := 'Hide Shift Info..';
 
   end;
 end;

@@ -91,33 +91,15 @@ begin
 end;
 
 procedure TForm3.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
 begin
-//Check if selected
-
 
   Self.AlphaBlend := True;
   Self.AlphaBlendValue := 150;
-
   with Form6 do
   begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Plant.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Plant.Picture.LoadFromFile(ImagePath);
-
-    end;
-
     ts1.TabVisible := True;
     ts2.TabVisible := False;
     ts3.TabVisible := false;
-
     ShowModal;
     Self.AlphaBlend := False;
   end;
@@ -141,8 +123,8 @@ begin
     ImagePath := tbl_Plants['ImagePath']; //
     if ImagePath = '' then
     begin
-      img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      //img_Item.Picture := Nil; //For now
+     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture := Nil; //For now
     end
     else
     begin

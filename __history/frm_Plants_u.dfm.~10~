@@ -3849,7 +3849,6 @@ object Form3: TForm3
       Top = 64
       Width = 222
       Height = 192
-      Brush.Style = bsClear
       Pen.Color = 2649375
       Pen.Width = 3
     end
@@ -13574,7 +13573,7 @@ object Form3: TForm3
       Font.Style = []
       ParentFont = False
       TabOrder = 2
-      OnClick = btn4Click
+      OnClick = btn1Click
     end
     object btn5: TButton
       Left = 16

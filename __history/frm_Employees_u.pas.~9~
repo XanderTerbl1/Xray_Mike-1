@@ -59,38 +59,16 @@ implementation
 {$R *.dfm}
 
 uses
-  frm_MainMenu_u, frm_UpdateDetails_u;
+  frm_MainMenu_u , frm_UpdateDetails_u;
 
 procedure TForm4.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
 begin
-//Check if selected
-
-
-  Self.AlphaBlend := True;
-  Self.AlphaBlendValue := 150;
-
   with Form6 do
   begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Empl.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Empl.Picture.LoadFromFile(ImagePath);
-
-    end;
-
     ts1.TabVisible := False;
     ts2.TabVisible := true;
     ts3.TabVisible := false;
-
     ShowModal;
-    Self.AlphaBlend := False;
   end;
 
 end;
@@ -109,11 +87,11 @@ begin
 
   with DataModule1 do
   begin
-    ImagePath := tbl_Plants['ImagePath']; //
+    ImagePath := tbl_Employees['ImagePath']; //
     if ImagePath = '' then
     begin
-      img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      //img_Item.Picture := Nil; //For now
+     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture := Nil; //For now
     end
     else
     begin
@@ -150,16 +128,12 @@ begin
   begin
     lbl9.Visible := False;
     lbl8.Visible := False;
-    dbtxtOperrational.Visible := False;
-    dbtxtReplacement.Visible := False;
     lbl6.Caption := 'View Shift Info..';
   end
   else
   begin
     lbl9.Visible := True;
     lbl8.Visible := True;
-    dbtxtOperrational.Visible := True;
-    dbtxtReplacement.Visible := True;
     lbl6.Caption := 'Hide Shift Info..';
 
   end;

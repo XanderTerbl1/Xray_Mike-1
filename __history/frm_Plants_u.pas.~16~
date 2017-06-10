@@ -46,7 +46,6 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure btn5Click(Sender: TObject);
-    procedure btn4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,7 +60,7 @@ implementation
 {$R *.dfm}
 
 uses
-  frm_MainMenu_u, frm_UpdateDetails_u;
+  frm_MainMenu_u;
 
 procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -90,40 +89,6 @@ begin
   Self.Close;
 end;
 
-procedure TForm3.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
-begin
-//Check if selected
-
-
-  Self.AlphaBlend := True;
-  Self.AlphaBlendValue := 150;
-
-  with Form6 do
-  begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Plant.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Plant.Picture.LoadFromFile(ImagePath);
-
-    end;
-
-    ts1.TabVisible := True;
-    ts2.TabVisible := False;
-    ts3.TabVisible := false;
-
-    ShowModal;
-    Self.AlphaBlend := False;
-  end;
-
-end;
-
 procedure TForm3.btn5Click(Sender: TObject);
 begin
   pnl1.BringToFront;
@@ -141,8 +106,8 @@ begin
     ImagePath := tbl_Plants['ImagePath']; //
     if ImagePath = '' then
     begin
-      img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      //img_Item.Picture := Nil; //For now
+     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture := Nil; //For now
     end
     else
     begin
@@ -158,16 +123,12 @@ begin
   begin
     lbl9.Visible := False;
     lbl8.Visible := False;
-    dbtxtOperrational.Visible := False;
-    dbtxtReplacement.Visible := False;
     lbl6.Caption := 'View Watering Info..';
   end
   else
   begin
     lbl9.Visible := True;
     lbl8.Visible := True;
-    dbtxtOperrational.Visible := True;
-    dbtxtReplacement.Visible := True;
     lbl6.Caption := 'Hide Watering Info..';
 
   end;

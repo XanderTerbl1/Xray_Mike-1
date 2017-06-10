@@ -60,34 +60,17 @@ uses
   frm_MainMenu_u, frm_UpdateDetails_u;
 
 procedure TForm5.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
 begin
-//Check if selected
-
 
   Self.AlphaBlend := True;
   Self.AlphaBlendValue := 150;
-
   with Form6 do
   begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Equip.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Equip.Picture.LoadFromFile(ImagePath);
-
-    end;
-
     ts1.TabVisible := False;
     ts2.TabVisible := False;
     ts3.TabVisible := True;
-
     ShowModal;
+
     Self.AlphaBlend := False;
   end;
 

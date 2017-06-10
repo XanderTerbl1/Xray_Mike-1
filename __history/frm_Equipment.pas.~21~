@@ -1,49 +1,45 @@
-unit frm_Plants_u;
+unit frm_Equipment;
 
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, jpeg, pngimage, GIFImg, DataModule, DBCtrls;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, DataModule, Grids, DBGrids, jpeg, ExtCtrls, pngimage, GIFImg, DBCtrls;
 
 type
-  TForm3 = class(TForm)
-    lbl1: TLabel;
-    dbgrd1: TDBGrid;
-    grp1: TGroupBox;
-    img_Item: TImage;
+  TForm5 = class(TForm)
+    img2: TImage;
+    img4: TImage;
     lbl2: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    shp2: TShape;
-    lbl5: TLabel;
+    dbgrd1: TDBGrid;
     grp2: TGroupBox;
     btn1: TButton;
     btn2: TButton;
     btn4: TButton;
-    lbl6: TLabel;
-    lbl8: TLabel;
-    lbl9: TLabel;
-    img2: TImage;
-    img3: TImage;
     pnl1: TPanel;
-    img4: TImage;
-    img5: TImage;
     lbl7: TLabel;
+    img1: TImage;
+    img3: TImage;
+    grp1: TGroupBox;
+    shp2: TShape;
+    img_Item: TImage;
+    lbl1: TLabel;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    lbl5: TLabel;
+    lbl6: TLabel;
     lbl10: TLabel;
     btn3: TButton;
     shp3: TShape;
     img6: TImage;
-    dbtxtOperrational2: TDBText;
+    dbtxt1: TDBText;
     dbtxtOperrational: TDBText;
-    dbtxtReplacement1: TDBText;
-    dbtxtOperrational1: TDBText;
     dbtxtReplacement: TDBText;
+    dbtxtOperrational1: TDBText;
     btn5: TButton;
-    procedure btn1Click(Sender: TObject);
     procedure lbl6Click(Sender: TObject);
-    procedure dbgrd1CellClick(Column: TColumn);
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure dbgrd1CellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
     procedure btn5Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
@@ -54,7 +50,7 @@ type
   end;
 
 var
-  Form3: TForm3;
+  Form5: TForm5;
 
 implementation
 
@@ -63,34 +59,7 @@ implementation
 uses
   frm_MainMenu_u, frm_UpdateDetails_u;
 
-procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Form2.Show;
-end;
-
-procedure TForm3.FormShow(Sender: TObject);
-begin
-  if Form2.PC.GetState = 'Admin' then
-    grp2.Show
-  else
-    grp2.Hide;
-
-  pnl1.BringToFront;
-  pnl1.Show;
-
-end;
-
-procedure TForm3.btn1Click(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TForm3.btn3Click(Sender: TObject);
-begin
-  Self.Close;
-end;
-
-procedure TForm3.btn4Click(Sender: TObject);
+procedure TForm5.btn4Click(Sender: TObject);
 var
   ImagePath: WideString;
 begin
@@ -108,15 +77,14 @@ begin
       ImagePath := tbl_Plants['ImagePath'];
 
       if ImagePath = '' then
-        img_Plant.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+        img_Equip.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
       else
-        img_Plant.Picture.LoadFromFile(ImagePath);
-
+        img_Equip.Picture.LoadFromFile(ImagePath);
     end;
 
-    ts1.TabVisible := True;
+    ts1.TabVisible := False;
     ts2.TabVisible := False;
-    ts3.TabVisible := false;
+    ts3.TabVisible := True;
 
     ShowModal;
     Self.AlphaBlend := False;
@@ -124,13 +92,13 @@ begin
 
 end;
 
-procedure TForm3.btn5Click(Sender: TObject);
+procedure TForm5.btn5Click(Sender: TObject);
 begin
   pnl1.BringToFront;
   pnl1.Show;
 end;
 
-procedure TForm3.dbgrd1CellClick(Column: TColumn);
+procedure TForm5.dbgrd1CellClick(Column: TColumn);
 var
   ImagePath: WideString;
 begin
@@ -150,28 +118,49 @@ begin
     end;
 
   end;
+
 end;
 
-procedure TForm3.lbl6Click(Sender: TObject);
+procedure TForm5.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if lbl9.Visible = True then
+  Form2.Show;
+end;
+
+procedure TForm5.FormShow(Sender: TObject);
+begin
+  if Form2.PC.GetState = 'Admin' then
+    grp2.Show
+  else
+    grp2.Hide;
+
+  pnl1.BringToFront;
+  pnl1.Show;
+end;
+
+procedure TForm5.btn3Click(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure TForm5.lbl6Click(Sender: TObject);
+begin
+  if lbl1.Visible = True then
   begin
-    lbl9.Visible := False;
-    lbl8.Visible := False;
+    lbl3.Visible := False;
+    lbl1.Visible := False;
     dbtxtOperrational.Visible := False;
     dbtxtReplacement.Visible := False;
-    lbl6.Caption := 'View Watering Info..';
+    lbl6.Caption := 'View Repair Info..';
   end
   else
   begin
-    lbl9.Visible := True;
-    lbl8.Visible := True;
+    lbl1.Visible := True;
+    lbl3.Visible := True;
     dbtxtOperrational.Visible := True;
     dbtxtReplacement.Visible := True;
-    lbl6.Caption := 'Hide Watering Info..';
+    lbl6.Caption := 'Hide Repair Info..';
 
   end;
-
 end;
 
 end.

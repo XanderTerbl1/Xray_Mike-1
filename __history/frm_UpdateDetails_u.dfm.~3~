@@ -348,10 +348,12 @@ object Form6: TForm6
     Top = 8
     Width = 585
     Height = 409
-    ActivePage = ts1
     TabOrder = 0
     object ts1: TTabSheet
       Caption = 'Plants'
+      TabVisible = False
+      ExplicitTop = 24
+      ExplicitHeight = 381
       object shp2: TShape
         Left = 327
         Top = 50
@@ -453,7 +455,7 @@ object Form6: TForm6
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object img_Plant: TImage
+      object img_Item: TImage
         Left = 329
         Top = 52
         Width = 217
@@ -9935,35 +9937,35 @@ object Form6: TForm6
           55B7542DFDE8EA93B01FFFD9}
         Stretch = True
       end
-      object edtpName: TEdit
+      object edt1: TEdit
         Left = 136
         Top = 85
         Width = 145
         Height = 21
         TabOrder = 0
       end
-      object edtpSpec: TEdit
+      object edt2: TEdit
         Left = 136
         Top = 112
         Width = 145
         Height = 21
         TabOrder = 1
       end
-      object edtpStat: TEdit
+      object edt3: TEdit
         Left = 136
         Top = 139
         Width = 145
         Height = 21
         TabOrder = 2
       end
-      object edtpFreq: TEdit
+      object edt4: TEdit
         Left = 130
         Top = 239
         Width = 145
         Height = 21
         TabOrder = 3
       end
-      object edtpTime: TEdit
+      object edt5: TEdit
         Left = 130
         Top = 266
         Width = 145
@@ -9998,6 +10000,9 @@ object Form6: TForm6
     object ts2: TTabSheet
       Caption = 'Employees'
       ImageIndex = 1
+      TabVisible = False
+      ExplicitTop = 24
+      ExplicitHeight = 381
       object shp1: TShape
         Left = 327
         Top = 50
@@ -10006,7 +10011,7 @@ object Form6: TForm6
         Pen.Color = 2649375
         Pen.Width = 3
       end
-      object img_Empl: TImage
+      object img2: TImage
         Left = 329
         Top = 52
         Width = 217
@@ -19678,6 +19683,9 @@ object Form6: TForm6
     object ts3: TTabSheet
       Caption = 'Equipment'
       ImageIndex = 2
+      TabVisible = False
+      ExplicitTop = 24
+      ExplicitHeight = 381
       object shp4: TShape
         Left = 327
         Top = 50
@@ -19686,7 +19694,7 @@ object Form6: TForm6
         Pen.Color = 2649375
         Pen.Width = 3
       end
-      object img_Equip: TImage
+      object img3: TImage
         Left = 329
         Top = 52
         Width = 217

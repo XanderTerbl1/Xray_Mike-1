@@ -42,7 +42,6 @@ type
     procedure dbgrd1CellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
     procedure btn5Click(Sender: TObject);
-    procedure btn4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,41 +56,7 @@ implementation
 {$R *.dfm}
 
 uses
-  frm_MainMenu_u, frm_UpdateDetails_u;
-
-procedure TForm5.btn4Click(Sender: TObject);
-var
-  ImagePath: WideString;
-begin
-//Check if selected
-
-
-  Self.AlphaBlend := True;
-  Self.AlphaBlendValue := 150;
-
-  with Form6 do
-  begin
-
-    with DataModule1 do
-    begin
-      ImagePath := tbl_Plants['ImagePath'];
-
-      if ImagePath = '' then
-        img_Equip.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      else
-        img_Equip.Picture.LoadFromFile(ImagePath);
-
-    end;
-
-    ts1.TabVisible := False;
-    ts2.TabVisible := False;
-    ts3.TabVisible := True;
-
-    ShowModal;
-    Self.AlphaBlend := False;
-  end;
-
-end;
+  frm_MainMenu_u;
 
 procedure TForm5.btn5Click(Sender: TObject);
 begin
@@ -107,11 +72,11 @@ begin
 
   with DataModule1 do
   begin
-    ImagePath := tbl_Plants['ImagePath']; //
+    ImagePath := tbl_Equipment['ImagePath']; //
     if ImagePath = '' then
     begin
-      img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      //img_Item.Picture := Nil; //For now
+     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+      img_Item.Picture := Nil; //For now
     end
     else
     begin
@@ -119,7 +84,6 @@ begin
     end;
 
   end;
-
 end;
 
 procedure TForm5.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -133,9 +97,6 @@ begin
     grp2.Show
   else
     grp2.Hide;
-
-  pnl1.BringToFront;
-  pnl1.Show;
 end;
 
 procedure TForm5.btn3Click(Sender: TObject);
@@ -149,16 +110,12 @@ begin
   begin
     lbl3.Visible := False;
     lbl1.Visible := False;
-    dbtxtOperrational.Visible := False;
-    dbtxtReplacement.Visible := False;
     lbl6.Caption := 'View Repair Info..';
   end
   else
   begin
     lbl1.Visible := True;
     lbl3.Visible := True;
-    dbtxtOperrational.Visible := True;
-    dbtxtReplacement.Visible := True;
     lbl6.Caption := 'Hide Repair Info..';
 
   end;
