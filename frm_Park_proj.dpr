@@ -9,7 +9,9 @@ uses
   DataModule in 'DataModule.pas' {DataModule1: TDataModule},
   frm_Equipment in 'frm_Equipment.pas' {Form5},
   cls_ProgramControl in 'cls_ProgramControl.pas',
-  frm_UpdateDetails_u in 'frm_UpdateDetails_u.pas' {Form6};
+  frm_UpdateDetails_u in 'frm_UpdateDetails_u.pas' {frm_UpdateDetails},
+  frm_AddDetails_u in 'frm_AddDetails_u.pas' {frm_Add},
+  frm_Settings_u in 'frm_Settings_u.pas' {Form6};
 
 {$R *.res}
 
@@ -22,6 +24,8 @@ begin
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(Tfrm_UpdateDetails, frm_UpdateDetails);
+  Application.CreateForm(Tfrm_Add, frm_Add);
   Application.CreateForm(TForm6, Form6);
   Application.Run;
 end.

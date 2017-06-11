@@ -4186,6 +4186,7 @@ object Form5: TForm5
       Top = 56
       Width = 246
       Height = 185
+      Brush.Style = bsClear
       Pen.Color = 2649375
       Pen.Width = 3
     end
@@ -6467,6 +6468,7 @@ object Form5: TForm5
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      Visible = False
     end
     object lbl3: TLabel
       Left = 69
@@ -6480,6 +6482,7 @@ object Form5: TForm5
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      Visible = False
     end
     object lbl4: TLabel
       Left = 82
@@ -6513,10 +6516,10 @@ object Form5: TForm5
     object lbl6: TLabel
       Left = 77
       Top = 320
-      Width = 103
+      Width = 115
       Height = 16
       Cursor = crHandPoint
-      Caption = 'View Shift Info..'
+      Caption = 'View Repair Info..'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -13
@@ -6579,6 +6582,7 @@ object Form5: TForm5
       Font.Name = 'Calibri'
       Font.Style = []
       ParentFont = False
+      Visible = False
     end
     object dbtxtOperrational1: TDBText
       Left = 163
@@ -6593,6 +6597,7 @@ object Form5: TForm5
       Font.Name = 'Calibri'
       Font.Style = []
       ParentFont = False
+      Visible = False
     end
   end
   object dbgrd1: TDBGrid
@@ -6631,7 +6636,7 @@ object Form5: TForm5
       Top = 74
       Width = 241
       Height = 49
-      Caption = 'Add'
+      Caption = 'Add Equipment'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -6639,13 +6644,14 @@ object Form5: TForm5
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = btn1Click
     end
     object btn2: TButton
       Left = 16
       Top = 129
       Width = 241
       Height = 49
-      Caption = 'Remove'
+      Caption = 'Remove Equipment'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -6653,6 +6659,7 @@ object Form5: TForm5
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btn2Click
     end
     object btn4: TButton
       Left = 16
@@ -6667,6 +6674,7 @@ object Form5: TForm5
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      OnClick = btn4Click
     end
     object btn5: TButton
       Left = 16
@@ -6698,5 +6706,11 @@ object Form5: TForm5
     ParentFont = False
     TabOrder = 4
     OnClick = btn3Click
+  end
+  object tmr1: TTimer
+    Enabled = False
+    OnTimer = tmr1Timer
+    Left = 488
+    Top = 320
   end
 end
