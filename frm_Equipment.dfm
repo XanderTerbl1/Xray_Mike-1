@@ -6636,7 +6636,7 @@ object Form5: TForm5
       Top = 74
       Width = 241
       Height = 49
-      Caption = 'Add'
+      Caption = 'Add Equipment'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -6644,13 +6644,14 @@ object Form5: TForm5
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = btn1Click
     end
     object btn2: TButton
       Left = 16
       Top = 129
       Width = 241
       Height = 49
-      Caption = 'Remove'
+      Caption = 'Remove Equipment'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -6658,6 +6659,7 @@ object Form5: TForm5
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btn2Click
     end
     object btn4: TButton
       Left = 16
@@ -6704,5 +6706,11 @@ object Form5: TForm5
     ParentFont = False
     TabOrder = 4
     OnClick = btn3Click
+  end
+  object tmr1: TTimer
+    Enabled = False
+    OnTimer = tmr1Timer
+    Left = 488
+    Top = 320
   end
 end

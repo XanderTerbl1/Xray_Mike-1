@@ -1,8 +1,8 @@
-object Form6: TForm6
+object frm_UpdateDetails: Tfrm_UpdateDetails
   Left = 0
   Top = 0
   BorderStyle = bsSingle
-  Caption = 'Form6'
+  Caption = 'frm_UpdateDetails'
   ClientHeight = 497
   ClientWidth = 821
   Color = clScrollBar
@@ -12,6 +12,7 @@ object Form6: TForm6
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object shp3: TShape
@@ -348,7 +349,7 @@ object Form6: TForm6
     Top = 8
     Width = 585
     Height = 409
-    ActivePage = ts1
+    ActivePage = ts2
     TabOrder = 0
     object ts1: TTabSheet
       Caption = 'Plants'
@@ -411,7 +412,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl8: TLabel
         Left = 67
@@ -425,7 +425,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl1: TLabel
         Left = 149
@@ -9977,6 +9976,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Change Image'
         TabOrder = 5
+        OnClick = btn1Click
       end
       object btn2: TButton
         Left = 93
@@ -9985,6 +9985,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Discard Changes'
         TabOrder = 6
+        OnClick = btn2Click
       end
       object btn3: TButton
         Left = 203
@@ -9993,6 +9994,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Save Changes'
         TabOrder = 7
+        OnClick = btn3Click
       end
     end
     object ts2: TTabSheet
@@ -19565,7 +19567,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl19: TLabel
         Left = 87
@@ -19579,7 +19580,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl6: TLabel
         Left = 136
@@ -19607,7 +19607,7 @@ object Form6: TForm6
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object edt9: TEdit
+      object edte_Cell: TEdit
         Left = 136
         Top = 164
         Width = 145
@@ -19621,6 +19621,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Change Image'
         TabOrder = 1
+        OnClick = btn4Click
       end
       object btn5: TButton
         Left = 203
@@ -19629,6 +19630,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Save Changes'
         TabOrder = 2
+        OnClick = btn5Click
       end
       object btn6: TButton
         Left = 93
@@ -19637,8 +19639,9 @@ object Form6: TForm6
         Height = 39
         Caption = 'Discard Changes'
         TabOrder = 3
+        OnClick = btn6Click
       end
-      object dtp1: TDateTimePicker
+      object dtp_Bday: TDateTimePicker
         Left = 136
         Top = 138
         Width = 145
@@ -19647,27 +19650,27 @@ object Form6: TForm6
         Time = 42887.927401793980000000
         TabOrder = 4
       end
-      object dtp2: TDateTimePicker
+      object dtp_Start: TDateTimePicker
         Left = 136
         Top = 240
         Width = 145
         Height = 20
-        Date = 42887.927401793980000000
-        Time = 42887.927401793980000000
+        Date = 42887.927083333340000000
+        Time = 42887.927083333340000000
         Kind = dtkTime
         TabOrder = 5
       end
-      object dtp3: TDateTimePicker
+      object dtp_End: TDateTimePicker
         Left = 136
         Top = 266
         Width = 145
         Height = 20
-        Date = 42887.927401793980000000
-        Time = 42887.927401793980000000
+        Date = 42887.927083333340000000
+        Time = 42887.927083333340000000
         Kind = dtkTime
         TabOrder = 6
       end
-      object edt6: TEdit
+      object edte_Name: TEdit
         Left = 136
         Top = 111
         Width = 145
@@ -29169,11 +29172,11 @@ object Form6: TForm6
         Stretch = True
       end
       object lbl11: TLabel
-        Left = 67
+        Left = 35
         Top = 116
-        Width = 52
+        Width = 84
         Height = 16
-        Caption = 'Status :'
+        Caption = 'Operational :'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -29232,7 +29235,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl26: TLabel
         Left = 76
@@ -29246,7 +29248,6 @@ object Form6: TForm6
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        Visible = False
       end
       object lbl27: TLabel
         Left = 154
@@ -29268,8 +29269,9 @@ object Form6: TForm6
         Height = 39
         Caption = 'Change Image'
         TabOrder = 1
+        OnClick = btn7Click
       end
-      object edt7: TEdit
+      object edt_Eq_Name: TEdit
         Left = 136
         Top = 90
         Width = 145
@@ -29283,6 +29285,7 @@ object Form6: TForm6
         Height = 39
         Caption = 'Save Changes'
         TabOrder = 2
+        OnClick = btn8Click
       end
       object btn9: TButton
         Left = 93
@@ -29291,22 +29294,23 @@ object Form6: TForm6
         Height = 39
         Caption = 'Discard Changes'
         TabOrder = 3
+        OnClick = btn9Click
       end
-      object chk1: TCheckBox
+      object chk_Stat: TCheckBox
         Left = 136
         Top = 117
         Width = 97
         Height = 17
         TabOrder = 4
       end
-      object chk2: TCheckBox
+      object chk_Replace: TCheckBox
         Left = 136
         Top = 139
         Width = 97
         Height = 17
         TabOrder = 5
       end
-      object dtp5: TDateTimePicker
+      object dtp_EqS: TDateTimePicker
         Left = 136
         Top = 208
         Width = 145
@@ -29315,7 +29319,7 @@ object Form6: TForm6
         Time = 42887.927401793980000000
         TabOrder = 6
       end
-      object dtp6: TDateTimePicker
+      object dtp_EqE: TDateTimePicker
         Left = 136
         Top = 234
         Width = 145
@@ -29340,5 +29344,9 @@ object Form6: TForm6
     ParentFont = False
     TabOrder = 1
     OnClick = btn10Click
+  end
+  object dlgOpenPic1: TOpenPictureDialog
+    Left = 680
+    Top = 424
   end
 end

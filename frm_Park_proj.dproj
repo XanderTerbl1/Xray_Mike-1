@@ -64,6 +64,12 @@
 			</DCCReference>
 			<DCCReference Include="cls_ProgramControl.pas"/>
 			<DCCReference Include="frm_UpdateDetails_u.pas">
+				<Form>frm_UpdateDetails</Form>
+			</DCCReference>
+			<DCCReference Include="frm_AddDetails_u.pas">
+				<Form>frm_Add</Form>
+			</DCCReference>
+			<DCCReference Include="frm_Settings_u.pas">
 				<Form>Form6</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">

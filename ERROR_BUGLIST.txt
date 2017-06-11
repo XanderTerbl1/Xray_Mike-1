@@ -1,0 +1,12 @@
+Known Bugs
+================
+- Shorter GIF length
+- Words not fully displayed in details section 
+- Error with adding/Updating and reading the Shift time (Employees)
+- Need to click on *NEW* cells in the DBGrid before it shows details
+- Updating Details is available when a table - record count is ZERO (Shouldnt be)
+- Last Name not available to change in Employee Update Section
+- Error with all calender dates
+	- SOLUTION WOULD BE TO CHANGE THE Database-Type for the calender dates to STRING and 
+	  use DateToStr. The same counts towards Time
+- Plant watering info in details pane sometimes show..

@@ -4066,6 +4066,8 @@ object Form4: TForm4
     Width = 401
     Height = 409
     DataSource = DataModule1.ds_Employee
+    FixedColor = clBlack
+    GradientEndColor = clBlack
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -4096,7 +4098,7 @@ object Form4: TForm4
       Top = 74
       Width = 241
       Height = 49
-      Caption = 'Add'
+      Caption = 'Add Employees'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -4104,13 +4106,14 @@ object Form4: TForm4
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = btn1Click
     end
     object btn2: TButton
       Left = 16
       Top = 129
       Width = 241
       Height = 49
-      Caption = 'Remove'
+      Caption = 'Remove Employee'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -4118,6 +4121,7 @@ object Form4: TForm4
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btn2Click
     end
     object btn4: TButton
       Left = 16
@@ -4164,5 +4168,11 @@ object Form4: TForm4
     ParentFont = False
     TabOrder = 4
     OnClick = btn3Click
+  end
+  object tmr1: TTimer
+    Enabled = False
+    OnTimer = tmr1Timer
+    Left = 488
+    Top = 320
   end
 end

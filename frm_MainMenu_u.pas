@@ -17,12 +17,16 @@ type
     img1: TImage;
     shp3: TShape;
     img3: TImage;
+    tmr1: TTimer;
     procedure btn4Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure Login(State: string);
+    procedure FormShow(Sender: TObject);
+    procedure tmr1Timer(Sender: TObject);
+    procedure btn5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +34,7 @@ type
     PC: TControl;    //Program Controller
 
     const
-      DefaultPath = 'NoImage.png';    //Load it from a textfile
+      DefaultPath = 'no-image.jpg';    //Load it from a textfile
   end;
 
 var
@@ -40,9 +44,7 @@ implementation
 
 {$R *.dfm}
 uses
-  frm_Park_u;
-
-
+  frm_Park_u , frm_Settings_u;
 
 procedure TForm2.btn1Click(Sender: TObject);
 begin
@@ -67,14 +69,33 @@ begin
   Self.Close;
 end;
 
+procedure TForm2.btn5Click(Sender: TObject);
+begin
+Self.Hide;
+frm_Settings_u.Form6.ShowModal;
+Self.Show;
+end;
+
 procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Form1.Show;
 end;
 
+procedure TForm2.FormShow(Sender: TObject);
+begin
+  (img3.Picture.Graphic as TGIFImage).Animate := True;
+  tmr1.Enabled := True;
+end;
+
 procedure TForm2.Login(State: string);
 begin
   PC := TControl.Create(State);
+end;
+
+procedure TForm2.tmr1Timer(Sender: TObject);
+begin
+  (img3.Picture.Graphic as TGIFImage).Animate := False;
+  tmr1.Enabled := False;
 end;
 
 end.

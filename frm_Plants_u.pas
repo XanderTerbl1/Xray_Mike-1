@@ -3,7 +3,7 @@ unit frm_Plants_u;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, jpeg, pngimage, GIFImg, DataModule, DBCtrls;
+  Windows, Messages, frm_AddDetails_u, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, jpeg, pngimage, GIFImg, DataModule, DBCtrls;
 
 type
   TForm3 = class(TForm)
@@ -39,6 +39,7 @@ type
     dbtxtOperrational1: TDBText;
     dbtxtReplacement: TDBText;
     btn5: TButton;
+    tmr1: TTimer;
     procedure btn1Click(Sender: TObject);
     procedure lbl6Click(Sender: TObject);
     procedure dbgrd1CellClick(Column: TColumn);
@@ -47,6 +48,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure btn5Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+    procedure tmr1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,11 +81,39 @@ begin
   pnl1.BringToFront;
   pnl1.Show;
 
+  grp2.Enabled := False;
+
+  (img6.Picture.Graphic as TGIFImage).Animate := True;
+  tmr1.Enabled := True;
+
 end;
 
 procedure TForm3.btn1Click(Sender: TObject);
 begin
-  Close;
+  Self.Hide;
+  with frm_AddDetails_u.frm_Add do
+  begin
+    img_Plant.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+    ts1.TabVisible := True;
+    ts2.TabVisible := False;
+    ts3.TabVisible := false;
+    ShowModal;
+    Self.Show;
+  end;
+  btn5.Click;
+end;
+
+procedure TForm3.btn2Click(Sender: TObject);
+var
+  iBut: Integer;
+begin
+  iBut := MessageDlg('Are you sure you want to remove : ' + DataModule1.tbl_Plants['PlantName'] + ' from the list ?', mtWarning, [mbYes, mbNo], 0);
+  if iBut = mrYes then
+  begin
+    DataModule1.tbl_Plants.Delete;
+    ShowMessage('Removed!');
+  end;
+
 end;
 
 procedure TForm3.btn3Click(Sender: TObject);
@@ -97,10 +128,9 @@ begin
 //Check if selected
 
 
-  Self.AlphaBlend := True;
-  Self.AlphaBlendValue := 150;
+  Self.Hide;
 
-  with Form6 do
+  with frm_UpdateDetails do
   begin
 
     with DataModule1 do
@@ -112,6 +142,8 @@ begin
       else
         img_Plant.Picture.LoadFromFile(ImagePath);
 
+      ImagePath1 := ImagePath;
+
     end;
 
     ts1.TabVisible := True;
@@ -119,8 +151,10 @@ begin
     ts3.TabVisible := false;
 
     ShowModal;
-    Self.AlphaBlend := False;
+    Self.Show;
+
   end;
+  btn5.Click;
 
 end;
 
@@ -135,6 +169,7 @@ var
   ImagePath: WideString;
 begin
   pnl1.SendToBack;
+  grp2.Enabled := True;
 
   with DataModule1 do
   begin
@@ -149,6 +184,8 @@ begin
       img_Item.Picture.LoadFromFile(ImagePath);
     end;
 
+    lbl5.Caption := tbl_Plants['PlantName'];
+
   end;
 end;
 
@@ -158,7 +195,7 @@ begin
   begin
     lbl9.Visible := False;
     lbl8.Visible := False;
-    dbtxtOperrational.Visible := False;
+    dbtxtOperrational1.Visible := False;
     dbtxtReplacement.Visible := False;
     lbl6.Caption := 'View Watering Info..';
   end
@@ -166,12 +203,18 @@ begin
   begin
     lbl9.Visible := True;
     lbl8.Visible := True;
-    dbtxtOperrational.Visible := True;
+    dbtxtOperrational1.Visible := True;
     dbtxtReplacement.Visible := True;
     lbl6.Caption := 'Hide Watering Info..';
 
   end;
 
+end;
+
+procedure TForm3.tmr1Timer(Sender: TObject);
+begin
+  (img6.Picture.Graphic as TGIFImage).Animate := False;
+  tmr1.Enabled := False;
 end;
 
 end.

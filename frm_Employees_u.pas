@@ -3,7 +3,7 @@ unit frm_Employees_u;
 interface
 
 uses
-  Windows, Messages, DataModule, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg, DBCtrls;
+  Windows, Messages, frm_AddDetails_u, DataModule, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg, DBCtrls;
 
 type
   TForm4 = class(TForm)
@@ -38,6 +38,7 @@ type
     dbtxtOperrational2: TDBText;
     dbtxtReplacement1: TDBText;
     btn5: TButton;
+    tmr1: TTimer;
     procedure lbl6Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -45,6 +46,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure btn5Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+    procedure tmr1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,20 +72,21 @@ begin
 //Check if selected
 
 
-  Self.AlphaBlend := True;
-  Self.AlphaBlendValue := 150;
+  Self.Hide;
 
-  with Form6 do
+  with frm_UpdateDetails do
   begin
 
     with DataModule1 do
     begin
-      ImagePath := tbl_Plants['ImagePath'];
+      ImagePath := tbl_Employees['ImagePath'];
 
       if ImagePath = '' then
         img_Empl.Picture.LoadFromFile(Form2.DefaultPath) //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
       else
         img_Empl.Picture.LoadFromFile(ImagePath);
+
+      ImagePath1 := ImagePath;
 
     end;
 
@@ -90,8 +95,10 @@ begin
     ts3.TabVisible := false;
 
     ShowModal;
-    Self.AlphaBlend := False;
+    Self.Show;
+
   end;
+  btn5.Click;
 
 end;
 
@@ -105,11 +112,12 @@ procedure TForm4.dbgrd1CellClick(Column: TColumn);
 var
   ImagePath: WideString;
 begin
+  grp2.Enabled := True;
   pnl1.SendToBack;
 
   with DataModule1 do
   begin
-    ImagePath := tbl_Plants['ImagePath']; //
+    ImagePath := tbl_Employees['ImagePath']; //
     if ImagePath = '' then
     begin
       img_Item.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
@@ -120,7 +128,9 @@ begin
       img_Item.Picture.LoadFromFile(ImagePath);
     end;
 
+    lbl5.Caption := tbl_Employees['First Name'] + ' ' + tbl_Employees['Last Name'];
   end;
+
 end;
 
 procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -137,6 +147,38 @@ begin
 
   pnl1.BringToFront;
   pnl1.Show;
+  grp2.Enabled := False;
+
+  (img6.Picture.Graphic as TGIFImage).Animate := True;
+  tmr1.Enabled := True;
+end;
+
+procedure TForm4.btn1Click(Sender: TObject);
+begin
+  Self.Hide;
+  with frm_AddDetails_u.frm_Add do
+  begin
+    img_Empl.Picture.LoadFromFile(Form2.DefaultPath); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
+    ts1.TabVisible := false;
+    ts2.TabVisible := true;
+    ts3.TabVisible := false;
+    ShowModal;
+    Self.Show;
+  end;
+  btn5.Click;
+end;
+
+procedure TForm4.btn2Click(Sender: TObject);
+var
+  iBut: Integer;
+begin
+  iBut := MessageDlg('Are you sure you want to remove : ' + DataModule1.tbl_Employees['First Name'] + ' from the list ?', mtWarning, [mbYes, mbNo], 0);
+  if iBut = mrYes then
+  begin
+    DataModule1.tbl_Employees.Delete;
+    ShowMessage('Removed!');
+  end;
+
 end;
 
 procedure TForm4.btn3Click(Sender: TObject);
@@ -150,7 +192,7 @@ begin
   begin
     lbl9.Visible := False;
     lbl8.Visible := False;
-    dbtxtOperrational.Visible := False;
+    dbtxtOperrational1.Visible := False;
     dbtxtReplacement.Visible := False;
     lbl6.Caption := 'View Shift Info..';
   end
@@ -158,11 +200,17 @@ begin
   begin
     lbl9.Visible := True;
     lbl8.Visible := True;
-    dbtxtOperrational.Visible := True;
+    dbtxtOperrational1.Visible := True;
     dbtxtReplacement.Visible := True;
     lbl6.Caption := 'Hide Shift Info..';
 
   end;
+end;
+
+procedure TForm4.tmr1Timer(Sender: TObject);
+begin
+  (img6.Picture.Graphic as TGIFImage).Animate := False;
+  tmr1.Enabled := False;
 end;
 
 end.

@@ -13537,7 +13537,7 @@ object Form3: TForm3
       Top = 74
       Width = 241
       Height = 49
-      Caption = 'Add'
+      Caption = 'Add Plants'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -13552,7 +13552,7 @@ object Form3: TForm3
       Top = 129
       Width = 241
       Height = 49
-      Caption = 'Remove'
+      Caption = 'Remove Plant'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -13560,6 +13560,7 @@ object Form3: TForm3
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btn2Click
     end
     object btn4: TButton
       Left = 16
@@ -13606,5 +13607,11 @@ object Form3: TForm3
     ParentFont = False
     TabOrder = 4
     OnClick = btn3Click
+  end
+  object tmr1: TTimer
+    Enabled = False
+    OnTimer = tmr1Timer
+    Left = 488
+    Top = 320
   end
 end
