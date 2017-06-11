@@ -1,7 +1,6 @@
 object Form3: TForm3
   Left = 0
   Top = 0
-  AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Form3'
   ClientHeight = 637
@@ -13559,6 +13558,7 @@ object Form3: TForm3
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btn2Click
     end
     object btn4: TButton
       Left = 16

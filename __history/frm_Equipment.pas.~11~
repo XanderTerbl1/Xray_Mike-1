@@ -72,7 +72,7 @@ begin
 
   with DataModule1 do
   begin
-    ImagePath := tbl_Equipment['ImagePath']; //
+    ImagePath := tbl_Plants['ImagePath']; //
     if ImagePath = '' then
     begin
      // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE

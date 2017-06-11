@@ -3,7 +3,7 @@ unit frm_Employees_u;
 interface
 
 uses
-  Windows, Messages, DataModule, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg, DBCtrls;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls, pngimage, jpeg, GIFImg;
 
 type
   TForm4 = class(TForm)
@@ -21,7 +21,7 @@ type
     img1: TImage;
     grp1: TGroupBox;
     shp2: TShape;
-    img_Item: TImage;
+    img5: TImage;
     lbl1: TLabel;
     lbl3: TLabel;
     lbl4: TLabel;
@@ -32,18 +32,11 @@ type
     btn3: TButton;
     shp3: TShape;
     img6: TImage;
-    dbtxtReplacement: TDBText;
-    dbtxtOperrational1: TDBText;
-    dbtxtOperrational: TDBText;
-    dbtxtOperrational2: TDBText;
-    dbtxtReplacement1: TDBText;
-    btn5: TButton;
     procedure lbl6Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dbgrd1CellClick(Column: TColumn);
     procedure FormShow(Sender: TObject);
-    procedure btn5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,32 +53,9 @@ implementation
 uses
   frm_MainMenu_u;
 
-procedure TForm4.btn5Click(Sender: TObject);
-begin
-  pnl1.BringToFront;
-  pnl1.Show;
-end;
-
 procedure TForm4.dbgrd1CellClick(Column: TColumn);
-var
-  ImagePath: WideString;
 begin
-  pnl1.SendToBack;
-
-  with DataModule1 do
-  begin
-    ImagePath := tbl_Employees['ImagePath']; //
-    if ImagePath = '' then
-    begin
-     // img_Item.Picture.LoadFromFile(); //LOAD DEFUALT IMAGE THAT SAYS NO IMAGE
-      img_Item.Picture := Nil; //For now
-    end
-    else
-    begin
-      img_Item.Picture.LoadFromFile(ImagePath);
-    end;
-
-  end;
+  pnl1.Hide;
 end;
 
 procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);

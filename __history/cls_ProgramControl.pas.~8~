@@ -21,7 +21,6 @@ implementation
 
 { TControl }
 
-
 constructor TControl.Create(STATE: string);
 begin
   fState := State;
